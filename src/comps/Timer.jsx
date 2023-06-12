@@ -1,10 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { CharContext } from "../context/CharContext";
+import { UserContext } from "../context/UserContext";
 
 function Timer() {
 
-  const{gameover} = useContext(CharContext)
+  const{gameover} = useContext(UserContext)
   const [sec, setSec] = useState(0);
+
 
   useEffect(()=>{
     const timer = setInterval(()=>{

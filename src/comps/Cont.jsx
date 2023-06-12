@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 
 function Cont() {
   const [showOpt, setShowOpt] = useState(false)
-  const {x, setX, y, setY} = useContext(CoordsContext)
+  const {setX, setY} = useContext(CoordsContext)
  
   const imgClk = (e) => {
     setX(e.nativeEvent.layerX)

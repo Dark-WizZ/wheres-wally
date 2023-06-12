@@ -1,4 +1,5 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext, useEffect, useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export const CharContext = createContext()
 
@@ -19,7 +20,7 @@ function CharContextProvider({children}) {
   const [wendaOpac, setWendaOpac] = useState('100%')
   const [odlawOpac, setOdlawOpac] = useState('100%')
 
-  const [gameover, setGameover] = useState(false)
+  const{setGameover} = useContext(UserContext)
 
   useEffect(()=>{
     let found=0;
@@ -50,7 +51,7 @@ function CharContextProvider({children}) {
 
   return <CharContext.Provider value={{
     setFoundWally, setFoundWizard, setFoundWenda, setFoundOdlaw,
-    wallyDis, wizardDis, wendaDis, odlawDis,gameover,
+    wallyDis, wizardDis, wendaDis, odlawDis,
     wallyOpac, wizardOpac, wendaOpac, odlawOpac
   }}>
     {children}
