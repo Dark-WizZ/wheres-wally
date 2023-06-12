@@ -3,6 +3,7 @@ $accent:rgb(255, 87, 31);
   height: 100%;
   display:flex;
   flex-direction: column;
+  position: relative;
 
   .top_bar{
     background-color: $accent;
@@ -70,6 +71,48 @@ $accent:rgb(255, 87, 31);
       div:hover{
         background-color: $accent;
         color: white;
+      }
+    }
+  }
+  .lboard_layout, .score_layout{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content:center;
+
+    .wrapper{
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 10px;
+      gap:0.5rem;
+      font-weight: 900;
+      box-shadow: 0 0 15px 5px $accent;
+      .lboard{
+        .players{
+          font-weight: 400;
+        }
+      }
+      .user_rank{
+        #user_rank{
+          font-weight: 400;
+        }
+      }
+      button{
+        width: fit-content;
+        align-self: end;
+        border: none;
+        background-color: $accent;
+        border-radius: 10px;
+        font-weight: 900;
+        padding:5px 10px;
+        letter-spacing: 0.1em;
+        &:hover{
+          cursor: pointer;
+          color:white;
+        }
       }
     }
   }

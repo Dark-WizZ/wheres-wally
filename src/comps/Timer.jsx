@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 
 function Timer() {
 
-  const{gameover} = useContext(UserContext)
+  const{gameover, setScore, setShowScore} = useContext(UserContext)
   const [sec, setSec] = useState(0);
 
 
@@ -12,7 +12,11 @@ function Timer() {
       setSec((p)=>p+1)
     },1000)
 
-    if(gameover) clearInterval(timer)
+    if(gameover) {
+      clearInterval(timer)
+      setScore(sec)
+      setSec(0)
+    }
 
     return () => {
       clearInterval(timer)
