@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CharContext } from "../context/CharContext";
 
 function Timer() {
 
+  const{gameover} = useContext(CharContext)
   const [sec, setSec] = useState(0);
 
   useEffect(()=>{
@@ -9,10 +11,12 @@ function Timer() {
       setSec((p)=>p+1)
     },1000)
 
+    if(gameover) clearInterval(timer)
+
     return () => {
       clearInterval(timer)
     }
-  },[])
+  },[gameover])
 
   const minutes = Math.floor(sec/60).toString().padStart(2,'0')
   const seconds = (sec%60).toString().padStart(2,'0') 

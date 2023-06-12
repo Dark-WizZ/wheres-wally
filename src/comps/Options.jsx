@@ -17,9 +17,8 @@ function Options(p) {
   }
   const wallyClk = (e) =>{
     if((x>2653 && x<2691) && (y>1263 && y<1315)){
-      alert('Wally Found!')
       setFoundWally(true)
-      console.log(e.target)
+      alert('Wally Found!')
     }else{
       alert('Try again!')
     }
