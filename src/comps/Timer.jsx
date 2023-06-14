@@ -14,7 +14,6 @@ function Timer() {
 
     if(gameover) {
       clearInterval(timer)
-      setScore(sec)
       setSec(0)
     }
 

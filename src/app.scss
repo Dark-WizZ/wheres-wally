@@ -1,4 +1,11 @@
 $accent:rgb(255, 87, 31);
+@media only screen  and (max-width: 786px){
+  .top_bar{
+    .title{
+      display: none;
+    }
+  }
+}
 .App{
   height: 100%;
   display:flex;
@@ -112,6 +119,20 @@ $accent:rgb(255, 87, 31);
         &:hover{
           cursor: pointer;
           color:white;
+        }
+      }
+      form{
+        display: flex;
+        flex-direction: column;
+        gap:0.5rem;
+        .note,#name_error{
+          color:$accent;
+          font-weight: 100;
+          font-size: small;
+        }
+        #name_error{
+          color:red;
+          display: none;
         }
       }
     }

@@ -5,10 +5,11 @@ import wenda from '../images/wenda.png'
 import wizard from '../images/wizard.png'
 import odlaw from '../images/odlaw.png'
 import { CharContext } from "../context/CharContext"
+import toast from 'toastr'
 
 function Options(p) {
 
-  const {x, y} = useContext(CoordsContext)
+  const {x, y, wallyP, wizardP, wendaP, odlawP} = useContext(CoordsContext)
   const{setFoundWally, setFoundWizard, setFoundWenda, setFoundOdlaw,
     wallyDis, wizardDis, wendaDis, odlawDis} = useContext(CharContext)
 
@@ -16,35 +17,39 @@ function Options(p) {
     p.setShowOpt(false)
   }
   const wallyClk = (e) =>{
-    if((x>2653 && x<2691) && (y>1263 && y<1315)){
+    toast.options={
+      'preventDuplicates':true,
+      'positionClass':'toast-top-center'
+    }
+    if((x>wallyP.x1 && x<wallyP.x2) && (y>wallyP.y1 && y<wallyP.y2)){
       setFoundWally(true)
-      alert('Wally Found!')
+      toast.success('Wally Found!')
     }else{
-      alert('Try again!')
+      toast.error('Keep looking','Try again!')
     }
   }
   const wizardClk = (e) =>{
-    if((x>721 && x<786) && (y>906 && y<979)){
+    if((x>wizardP.x1 && x<wizardP.x2) && (y>wizardP.y1 && y<wizardP.y2)){
       setFoundWizard(true)
-      alert('Wizard Found!')
+      toast.success('Wizard Found!')
     }else{
-      alert('Try again!')
+      toast.error('Keep looking','Try again!')
     }
   }
   const wendaClk = (e) =>{
-    if((x>378 && x<418) && (y>1619 && y<1679)){
+    if((x>wendaP.x1 && x<wendaP.x2) && (y>wendaP.y1 && y<wendaP.y2)){
       setFoundWenda(true)
-      alert('Welda Found!')
+      toast.success('Welda Found!')
     }else{
-      alert('Try again!')
+      toast.error('Keep looking','Try again!')
     }
   }
   const odlawClk = (e) =>{
-    if((x>1959 && x<2002) && (y>1060 && y<1120)){
+    if((x>odlawP.x1 && x<odlawP.x2) && (y>odlawP.y1 && y<odlawP.y2)){
       setFoundOdlaw(true)
-      alert('Odlaw Found!')
+      toast.success('Odlaw Found!')
     }else{
-      alert('Try again!')
+      toast.error('Keep looking','Try again!')
     }
   }
 

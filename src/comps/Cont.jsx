@@ -1,15 +1,19 @@
 import { CoordsContext } from '../context/CoordsContext';
 import fruitFight from '../images/fruit_fight.jpg'
 import Options from './Options';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
+import toastr from 'toastr';
 
 function Cont() {
   const [showOpt, setShowOpt] = useState(false)
   const {setX, setY} = useContext(CoordsContext)
  
   const imgClk = (e) => {
-    setX(e.nativeEvent.layerX)
-    setY(e.nativeEvent.layerY)
+    let x=e.nativeEvent.offsetX
+    let y=e.nativeEvent.offsetY
+    console.log({x,y})
+    setX(e.nativeEvent.offsetX)
+    setY(e.nativeEvent.offsetY)
     if (showOpt) setShowOpt(false)
     else setShowOpt(true)
   }

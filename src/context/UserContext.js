@@ -6,6 +6,7 @@ const UserContextProvider = ({children}) => {
 
   const [name, setName] = useState('Anonymmous')
   const [score, setScore] = useState(0)
+  const [rank,setRank] = useState(0)
   
   const [showScore, setShowScore] = useState(false)
   const [showLBoard, setShowLBoard] = useState(false)
@@ -14,7 +15,7 @@ const UserContextProvider = ({children}) => {
 
   return<UserContext.Provider value={{name, setName, score,
   setScore, showScore, setShowScore, showLBoard, setShowLBoard,
-  gameover, setGameover}}>
+  gameover, setGameover,rank,setRank}}>
     {children}
   </UserContext.Provider>
 }
